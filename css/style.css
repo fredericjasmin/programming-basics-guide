@@ -1,93 +1,170 @@
+/* Fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
 
+/* General */
+
 * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
     --color1: #151D3B;
     --color2: #E8F9FD;
+    --color3: #1d3ba8;
+    --color4: #0d1224;
 }
 
 body {
     background-color: var(--color1);
-    color: var(--color2);
     font-family: 'Baloo 2', cursive;
 }
 
 .head {
-    padding: 90px;
+    padding: 50px;
 }
 
 .title {
+    color: var(--color2);
     text-align: center;
     font-size: 40px;
-    position: relative;
-    top: 50%;
-    width: 16em;
-    margin: 0 auto;
-    border-right: 2px solid rgba(255, 255, 255, 0.75);
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);
+    letter-spacing: 0.1rem;
+    font-weight: bold;
 }
 
 .description {
+    color: var(--color2);
     text-align: center;
     font-size: 20px;
 }
 
-.card_title {
-    text-align: center;
-    font-size: 40px;
-    font-weight: 1000px;
+a {
+    color: var(--color1);
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.5s;
 }
 
-/*Animation*/
-.typing {
-    animation: typewriter 4s steps(36) 1s 1 normal both,
-        blinkTextCursor 500ms steps(36) infinite normal;
-}
-
-@keyframes typewriter {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 16em;
-    }
-}
-
-@keyframes blinkTextCursor {
-    from {
-        border-right-color: rgba(255, 255, 255, 0.75);
-    }
-
-    to {
-        border-right-color: transparent;
-    }
+a:hover {
+    color: var(--color3);
 }
 
 .features {
     display: flex;
     justify-content: center;
     text-align: center;
+    padding: 50px;
 }
 
-.card {
-    background-color: var(--color2);
-    color: var(--color1);
-    height: 300px;
-    width: 250px;
-    margin: 10px;
+/* Scroll Bar */
+
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #ccc;
     border-radius: 5px;
 }
 
-.footer {
+*::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+
+*::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-track:hover,
+*::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
+}
+
+/* Cards */
+
+.card {
+    background-color: var(--color2);
+    word-wrap: break-word;
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.card_title {
+    color: var(--color1);
     text-align: center;
-    position: fixed;
-    left: 0px;
-    bottom: 40px;
-    height: 30px;
+    font-size: 40px;
+    font-weight: 1000px;
+}
+
+.card_description {
+    color: var(--color1);
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Typing Animation */
+
+.cursor {
+    display: inline-block;
+    background-color: #ccc;
+    margin-left: 0.1rem;
+    width: 3px;
+    animation: blink 1s infinite;
+}
+
+
+@keyframes blink {
+    0% {
+        background-color: #ccc;
+    }
+
+    49% {
+        background-color: #ccc;
+    }
+
+    50% {
+        background-color: transparent;
+    }
+
+    99% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: #ccc;
+    }
+}
+
+/* Footer */
+
+footer {
+    position: absolute;
+    height: 50px;
+    line-height: 50px;
+    background-color: var(--color4);
+    color: white;
+    text-align: center;
+    left: 0;
     width: 100%;
 }
-.footer p {
-    font-size: 20px;
+
+/* Responsive*/
+
+@media (max-width: 900px) {
+    .features {
+        align-items: center;
+        display: inline-block;
+    }
+
+    .container {
+        text-align: center;
+    }
 }
